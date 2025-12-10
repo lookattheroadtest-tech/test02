@@ -1,0 +1,11 @@
+# Example GET
+curl -X GET "https://example.com/api/v1/users" \
+-H "Authorization: $TOKEN" \
+-H "Content-Type: application/json"
+
+
+# Example POST
+curl -X POST "https://example.com/api/v1/create" \
+-H "Authorization: $TOKEN" \
+-H "Content-Type: application/json" \
+-d '{"name":"test","role":"dev"}'

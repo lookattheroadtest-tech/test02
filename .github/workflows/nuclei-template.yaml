@@ -1,0 +1,37 @@
+id: api-test-basic
+info:
+name: API Authenticated Replay Test
+severity: info
+
+
+variables:
+token: ""
+
+
+requests:
+- method: GET
+path:
+- https://example.com/api/v1/users
+headers:
+Authorization: "{{token}}"
+Content-Type: application/json
+matchers-condition: and
+matchers:
+- type: status
+status:
+- 200
+
+
+- method: POST
+path:
+- https://example.com/api/v1/create
+headers:
+Authorization: "{{token}}"
+Content-Type: application/json
+body: |
+{"name":"test","role":"dev"}
+matchers-condition: and
+matchers:
+- type: status
+status:
+- 200
